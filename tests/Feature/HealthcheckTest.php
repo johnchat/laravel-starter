@@ -1,10 +1,10 @@
 <?php
 
+namespace Tests\Feature;
+
 class HealthcheckTest extends TestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function canPingHealthcheck()
     {
         $this->get('/healthcheck/'.env('HEALTHCHECK_TOKEN'))
