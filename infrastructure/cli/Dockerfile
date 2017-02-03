@@ -20,8 +20,5 @@ RUN chown -R www-data:www-data /var/www/html
 # Put php artisan schedule:run in a crontab
 RUN echo "*       *       *       *       *       php /var/www/html/artisan schedule:run" > /etc/crontabs/www-data
 
-# Run composer as www-data
-USER www-data
-
 # Make sure when users get into the container they aren't root
 USER www-data
