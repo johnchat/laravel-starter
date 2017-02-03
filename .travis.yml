@@ -13,20 +13,17 @@ before_install:
   # set env vars in the build settings to interact with repositories
   # see https://docs.travis-ci.com/user/environment-variables/#Defining-Variables-in-Repository-Settings
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-  # Install composer dependencies
-  - composer global require hirak/prestissimo
-  - composer install  --no-interaction --optimize-autoloader --no-dev --prefer-dist
   # Start the docker stuff
   - docker-compose -v
   - docker-compose up -d
   - sleep 4
-  - docker exec -it $(docker-compose ps -q fpm) sh -c "ls -latr /var/www/html/bootstrap"
+  - which npm
   - docker-compose ps
   # Build cli container
   - docker build -t "${DOCKER_REPO}:cli" -f infrastructure/cli/Dockerfile .
 install:
   # Install dev php dependencies
-  - composer install --no-interaction --prefer-dist
+  - docker exec -it $(docker-compose ps -q fpm) sh -c "composer install --no-interaction --prefer-dist"
 script:
   # Seed database
   - docker exec -it $(docker-compose ps -q fpm) sh -c "php artisan migrate --seed"
