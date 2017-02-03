@@ -1,7 +1,7 @@
 services: docker
-language: php
-php:
-  - 7.1
+language: node_js
+node_js:
+  - 6
 before_install:
   # Strips out dashes in organization names because they are not allowed in dockerhub
   - export DOCKER_REPO=`awk -F/ '{gsub("-","",$1)};{print $1"/"$2}' <<<$TRAVIS_REPO_SLUG | tr '[:upper:]' '[:lower:]'`
