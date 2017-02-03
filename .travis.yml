@@ -17,7 +17,8 @@ before_install:
   - docker-compose -v
   - docker-compose up -d
   - sleep 4
-  - which npm
+  # Build front-end assets
+  - npm install production
   - docker-compose ps
   # Build cli container
   - docker build -t "${DOCKER_REPO}:cli" -f infrastructure/cli/Dockerfile .

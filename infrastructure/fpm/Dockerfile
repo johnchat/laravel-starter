@@ -20,7 +20,7 @@ RUN apk add --update --no-cache git zip unzip \
 RUN php /var/www/html/infrastructure/install_composer.php
 
 # Ownership of the app dir for www-data
-RUN chown -R www-data:www-data /var/www/html
+RUN chown -R www-data:www-data /var/www/html /home/www-data/
 
 # Run composer as www-data
 USER www-data
