@@ -31,6 +31,7 @@ RUN echo "*       *       *       *       *       php /var/www/html/artisan sche
 USER www-data
 
 # parallel dependency installation
+RUN mkdir -p /home/www-data/.composer/cache \
 RUN composer global require hirak/prestissimo \
     # production-ready dependencies
     && composer install  --no-interaction --optimize-autoloader --no-dev --prefer-dist
