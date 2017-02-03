@@ -20,6 +20,7 @@ before_install:
   - docker-compose -v
   - docker-compose up -d
   - sleep 4
+  - docker exec -it $(docker-compose ps -q fpm) sh -c "ls -latr /var/www/html/bootstrap"
   - docker-compose ps
   # Build cli container
   - docker build -t "${DOCKER_REPO}:cli" -f infrastructure/cli/Dockerfile .

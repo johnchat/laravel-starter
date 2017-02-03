@@ -12,8 +12,6 @@ WORKDIR /var/www/html
 #RUN sed -ri 's/^www-data:x:82:82:/www-data:x:1000:1000:/' /etc/passwd \
 #    && sed -ri 's/^www-data:x:82:/www-data:x:1000:/' /etc/group
 
-RUN ls -latr /var/www/html/bootstrap
-
 # Ownership of the app dir for www-data
 RUN chown -R www-data:www-data /var/www/html
 
