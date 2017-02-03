@@ -25,9 +25,10 @@ RUN chown -R www-data:www-data /var/www/html
 # Run composer as www-data
 USER www-data
 
+RUN ls -latr /home/www-data/.composer/cache
+
 # parallel dependency installation
-RUN mkdir -p /home/www-data/.composer/cache \
-    && composer global require hirak/prestissimo \
+RUN composer global require hirak/prestissimo \
     # production-ready dependencies
     && composer install  --no-interaction --optimize-autoloader --no-dev --prefer-dist
 
