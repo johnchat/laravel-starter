@@ -17,6 +17,7 @@ This [Laravel](https://www.laravel.com) starter template is intended to be used 
 ### What's Included
 
  * Latest version of Laravel.
+ * [Laravel Dusk](https://laravel.com/docs/master/dusk)
  * Pre-configured `docker-compose.yml` that uses nginx, php-fpm and PostgreSQL. ([How can I use MySQL?](#use-mysql))
  * [Travis-CI](https://travis-ci.org) integration:
     * Checks [psr-2 compliance](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md) with [phpcs](https://github.com/squizlabs/PHP_CodeSniffer).

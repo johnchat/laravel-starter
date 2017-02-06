@@ -30,6 +30,7 @@ script:
   - docker exec -it $(docker-compose ps -q fpm) sh -c "php artisan migrate --seed"
   # Run tests
   - docker exec -it $(docker-compose ps -q fpm) sh -c "vendor/bin/phpunit"
+  - docker exec -it $(docker-compose ps -q fpm) sh -c "php artisan dusk"
   # Clean up pre-packaged stuff so the Laravel instance is clean and re-run tests to make sure we didn't break something
   - docker exec -it $(docker-compose ps -q fpm) sh -c "php artisan clean:template -f"
   - docker exec -it $(docker-compose ps -q fpm) sh -c "vendor/bin/phpunit"
